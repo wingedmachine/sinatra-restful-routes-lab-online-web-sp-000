@@ -10,7 +10,6 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes' do
-    raise params
     Recipe.create(name: params[:name],
                   ingredients: params[:ingredients],
                   cook_time: params[:cook_time])
@@ -26,15 +25,10 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/recipes/:id' do
-    binding.pry
     recipe = Recipe.find(params[:id])
-    binding.pry
     recipe.name = params[:name]
-    binding.pry
     recipe.ingredients = params[:ingredients]
-    binding.pry
     recipe.cook_time = params[:cook_time]
-    binding.pry
     redirect "recipes/#{recipe.id}"
   end
 
