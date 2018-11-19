@@ -3,5 +3,5 @@
 <p><%= @recipe.ingredients %></p>
 <form action="/recipes/<%= @recipe.id %>" method="put">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
+  <input type="submit" value="Delete" id="delete">
 </form>
