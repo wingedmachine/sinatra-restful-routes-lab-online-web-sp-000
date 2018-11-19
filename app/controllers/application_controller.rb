@@ -19,8 +19,11 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/recipes/:id' do
-
-    redirect "recipes/#{params[:id]}"
+    recipe = Recipe.find(params[:id])
+    recipe.name = params[:name]
+    recipe.ingredients = params[:ingredients]
+    recipe.cook_time = params[:cook_time]
+    redirect "recipes/#{recipe.id}"
   end
 
   get '/recipes/:id/edit' do
