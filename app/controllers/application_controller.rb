@@ -12,4 +12,8 @@ class ApplicationController < Sinatra::Base
   get '/recipes/new' do
     erb :new_recipe
   end
+
+  get '/recipes/:id' do
+    erb :show_recipe
+  end
 end
